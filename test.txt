@@ -1,0 +1,33 @@
+        <div class="contact">
+                    <form onsubmit="sendEmail(); reset(); return false">
+                        <h3> GET IN TOUCH</h3>
+                        <input type="text" placeholder="Name"><br>
+                        <input type="text" placeholder="Phone no."><br>
+                        <input type="text" placeholder="Company Name"><br>
+                        <input type="email" placeholder="Email"><br>
+                        <input type="text" placeholder="Message"><br>
+                        <button type="submit">Submit</button><br>
+                    </form>
+                </div>
+        </section>
+</div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail(){
+                Email.send({
+            Host : "smtp.yourisp.com",
+            Username : "Gamza23@gmail.com",
+            Password : "Gamza@1",
+            To : 'hed69750@cdfaq.com',
+            From : document.getElementById("email").value,
+            Subject : "Contact Form",
+            Body : "Name" + document.getElementById("name").value
+                    + "<br> Email: " +  document.getElementById("email").value
+                    + "<br> Phone no: " +  document.getElementById("phone").value
+                    + "<br> Message: " +  document.getElementById("message").value
+                    + "<br> Company name: " +  document.getElementById("company name").value
+        }).then(
+        message => alert("Message Sent Successfull")
+        );
+    }
